@@ -116,7 +116,7 @@ if game.PlaceId == 2788229376 then
     end)
     Players.PlayerAdded:Connect(function(player)
         game.StarterGui:SetCore("SendNotification", {
-            Title = "Someone joined!",
+            Title = "Player Joined!",
             Text = player.name .. " joined the game.",
             Duration = 5
         })
@@ -148,6 +148,18 @@ if game.PlaceId == 2788229376 then
                         end
                         if finalMsg == getgenv().prefix .. "setup admin" then
                             game.Players.LocalPlayer.Character.Head.Anchored = false
+                            local Player = game.Players.LocalPlayer
+
+local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
                             for i, v in pairs(getgenv().alts) do
                                 if i == "Alt1" then
                                     if v == plr.UserId then
@@ -775,14 +787,32 @@ if game.PlaceId == 2788229376 then
 
                         end
 
-                        if finalMsg == getgenv().prefix .. "vibe" then
+                        if finalMsg == getgenv().prefix .. "stopdance" then
 
-                            game:GetService("Players"):Chat("/e dance2")
+                            local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
 
                         end
-                        if finalMsg == getgenv().prefix .. "vibe " .. plr.Name:lower() then
+                        if finalMsg == getgenv().prefix .. "stopdance " .. plr.Name:lower() then
 
-                            game:GetService("Players"):Chat("/e dance2")
+                            local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
 
                         end
 
@@ -921,6 +951,7 @@ if game.PlaceId == 2788229376 then
                             humanoid.Jump = true
                             wait(0.3)
                             game.Players.LocalPlayer.Character.Head.Anchored = true
+                           
 
                         end
                         if finalMsg == getgenv().prefix .. "airlock" then
@@ -934,6 +965,7 @@ if game.PlaceId == 2788229376 then
                             humanoid.Jump = true
                             wait(0.3)
                             game.Players.LocalPlayer.Character.Head.Anchored = true
+                          
 
                         end
                         if finalMsg == getgenv().prefix .. "kill" then
@@ -941,22 +973,7 @@ if game.PlaceId == 2788229376 then
                         end
 
                         if finalMsg == getgenv().prefix .. "crash" then
-                            loadstring(game:HttpGet(
-                                'https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher'))()
-                            wait(2)
-                            local function firefakesignal(Button)
-                                game:GetService("VirtualInputManager"):SendMouseButtonEvent(Button.AbsolutePosition.X +
-                                                                                                Button.AbsoluteSize.X /
-                                                                                                2,
-                                    Button.AbsolutePosition.Y + Button.AbsoluteSize.Y / 2 + 30, 0, true, yomama, 1)
-                                game:GetService("VirtualInputManager"):SendMouseButtonEvent(Button.AbsolutePosition.X +
-                                                                                                Button.AbsoluteSize.X /
-                                                                                                2,
-                                    Button.AbsolutePosition.Y + Button.AbsoluteSize.Y / 2 + 30, 0, false, yomama, 1)
-                            end
-
-                            firefakesignal(game:GetService("CoreGui").SwagmodeCrasher["made_by_Lerk#7643"].CrashFrame
-                                               .Abuse)
+                            
                         end
 
                         if finalMsg == getgenv().prefix .. "kill " .. plr.Name:lower() then
@@ -991,6 +1008,215 @@ if game.PlaceId == 2788229376 then
                         if finalMsg == getgenv().prefix .. "freeze" then
 
                             game.Players.LocalPlayer.Character.Head.Anchored = true
+
+                        end
+                        
+                         if finalMsg == getgenv().prefix .. "god" then
+
+                           local oldplc = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				wait()
+				function god()
+					attack = player.Character:FindFirstChild("BodyEffects").Attacking
+					if attack then
+						attack:Destroy()
+					end
+				end
+				player.CharacterAdded:Connect(function()
+					wait(1)
+					god()
+					wait()
+					player.Character.HumanoidRootPart.CFrame = oldplc
+				end)
+				player.Character.Humanoid.Health = 0
+			end
+
+                        end
+                        
+                         if finalMsg == getgenv().prefix .. "god" .. plr.Name:lower() then
+
+                           local oldplc = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				wait()
+				function god()
+					attack = player.Character:FindFirstChild("BodyEffects").Attacking
+					if attack then
+						attack:Destroy()
+					end
+				end
+				player.CharacterAdded:Connect(function()
+					wait(1)
+					god()
+					wait()
+					player.Character.HumanoidRootPart.CFrame = oldplc
+				end)
+				player.Character.Humanoid.Health = 0
+			end
+
+                        end
+                        
+                          if finalMsg == getgenv().prefix .. "block" then
+
+
+                               game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",true)
+
+                        end
+                        
+                          if finalMsg == getgenv().prefix .. "block " .. plr.Name:lower() then
+
+                            game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",true)
+
+                        end
+                        
+                           if finalMsg == getgenv().prefix .. "unblock " .. plr.Name:lower() then
+
+                            game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
+
+                        end
+                        
+                           if finalMsg == getgenv().prefix .. "unblock " .. plr.Name:lower() then
+
+                            game:GetService("ReplicatedStorage").MainEvent:FireServer("Block",false)
+
+                        end
+                        
+                         if finalMsg == getgenv().prefix .. "Blitz " .. plr.Name:lower() then
+                         local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    wait(1)
+
+                             local player = game.Players.LocalPlayer
+  local SppedBlitz = Instance.new('Animation', game.Workspace)
+    SppedBlitz.AnimationId = 'rbxassetid://11710541744'
+    local Spped = player.Character.Humanoid:LoadAnimation(SppedBlitz)
+   Spped:Play()
+  
+
+                        end
+                        
+                        if finalMsg == getgenv().prefix .. "Blitz" then
+                        
+                        local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    
+    wait(1)
+
+                             local player = game.Players.LocalPlayer
+  local SppedBlitz = Instance.new('Animation', game.Workspace)
+    SppedBlitz.AnimationId = 'rbxassetid://11710541744'
+    local Spped = player.Character.Humanoid:LoadAnimation(SppedBlitz)
+   Spped:Play()
+  
+
+                        end
+                        
+                         if finalMsg == getgenv().prefix .. "Sturdy" then
+                         
+                         local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    
+    wait(1)
+
+                              local player = game.Players.LocalPlayer
+  local SppedBlitz = Instance.new('Animation', game.Workspace)
+    Sturdy.AnimationId = 'rbxassetid://11710524717'
+    local Sturdy = player.Character.Humanoid:LoadAnimation(Sturdy)
+   Sturdy:Play()
+  
+
+                        end
+                        
+                           if finalMsg == getgenv().prefix .. "Sturdy " .. plr.Name:lower() then
+                           
+                           local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    
+    wait(1)
+
+                             local player = game.Players.LocalPlayer
+  local SppedBlitz = Instance.new('Animation', game.Workspace)
+    Sturdy.AnimationId = 'rbxassetid://11710524717'
+    local Sturdy = player.Character.Humanoid:LoadAnimation(Sturdy)
+   Sturdy:Play()
+  
+
+                        end
+                        
+                         if finalMsg == getgenv().prefix .. "Admin " .. plr.Name:lower() then
+                         
+                         local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    
+    wait(1)
+
+                             local player = game.Players.LocalPlayer
+  local Idleanimation = Instance.new('Animation', game.Workspace)
+    Idleanimation.AnimationId = 'rbxassetid://3541114300'
+    local HeroIdle = player.Character.Humanoid:LoadAnimation(Idleanimation)
+   HeroIdle:Play()
+  
+
+                        end
+                        
+                         if finalMsg == getgenv().prefix .. "Admin " .. plr.Name:lower() then
+                         
+                         local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") or game.Players.LocalPlayer.Character:FindFirstChildOfClass("AnimationController")
+	local ActiveTracks = Humanoid:GetPlayingAnimationTracks()
+	for _, v in pairs(ActiveTracks) do
+		v:AdjustSpeed(1)
+	end
+	
+	wait(1)
+	
+	game.Players.LocalPlayer.Character.Animate.Disabled = true
+	game.Players.LocalPlayer.Character.Animate.Disabled = false
+    
+    wait(1)
+
+                       local player = game.Players.LocalPlayer
+  local Idleanimation = Instance.new('Animation', game.Workspace)
+    Idleanimation.AnimationId = 'rbxassetid://3541114300'
+    local HeroIdle = player.Character.Humanoid:LoadAnimation(Idleanimation)
+   HeroIdle:Play()
+  
 
                         end
 
@@ -2389,7 +2615,7 @@ if game.PlaceId == 2788229376 then
             TextLabel.Position = UDim2.new(0.379002213, 0, 0.0237247907, 0)
             TextLabel.Size = UDim2.new(0, 325, 0, 54)
             TextLabel.Font = Enum.Font.Code
-            TextLabel.Text = "Bedrock's Controll v1"
+            TextLabel.Text = "Alt Controller"
             TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
             TextLabel.TextScaled = true
             TextLabel.TextSize = 14.000
@@ -2501,7 +2727,7 @@ if game.PlaceId == 2788229376 then
                 local button = script.Parent
 
                 function leftClick()
-                    setclipboard("https://discord.gg/AQbQ7tGWFS")
+                    setclipboard("help me#1234")
                 end
 
                 button.MouseButton1Click:Connect(leftClick)
@@ -2514,7 +2740,7 @@ if game.PlaceId == 2788229376 then
 
                 function leftClick()
                     setclipboard(
-                        "https://www.roblox.com/groups/13503339/Wer-Der-mann-mit-schiessgewehr-Wo-Im-klo#!/about")
+                        "https://www.roblox.com/groups/16482880/unnamed#!/about")
                 end
 
                 button.MouseButton1Click:Connect(leftClick)
